@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 31 janv. 2016 23:21:57 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="ma.gabCashRetracted.entities.Transaction" table="transaction" catalog="gab">
+        <id name="idtransaction" type="java.lang.Integer">
+            <column name="idtransaction" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="compte" class="ma.gabCashRetracted.entities.Compte" fetch="select">
+            <column name="idCompte" not-null="true" />
+        </many-to-one>
+        <property name="date" type="timestamp">
+            <column name="date" length="19" not-null="true" />
+        </property>
+        <property name="montant" type="float">
+            <column name="montant" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

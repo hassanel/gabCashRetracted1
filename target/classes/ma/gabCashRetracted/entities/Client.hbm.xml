@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 31 janv. 2016 23:21:57 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="ma.gabCashRetracted.entities.Client" table="client" catalog="gab">
+        <id name="idClient" type="java.lang.Integer">
+            <column name="idClient" />
+            <generator class="identity" />
+        </id>
+        <property name="nom" type="string">
+            <column name="nom" length="45" not-null="true" />
+        </property>
+        <property name="prenom" type="string">
+            <column name="prenom" length="45" not-null="true" />
+        </property>
+        <property name="nomDUtilisateur" type="string">
+            <column name="nom_d_utilisateur" length="45" not-null="true" unique="true"/>
+        </property>
+        <property name="motDePasse" type="string">
+            <column name="mot_de_passe" length="100" not-null="true" />
+        </property>
+        <set name="comptes" table="compte" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idClient" not-null="true" />
+            </key>
+            <one-to-many class="ma.gabCashRetracted.entities.Compte" />
+        </set>
+    </class>
+</hibernate-mapping>

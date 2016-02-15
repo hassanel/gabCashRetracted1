@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 31 janv. 2016 23:21:57 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="ma.gabCashRetracted.entities.Compte" table="compte" catalog="gab">
+        <id name="idCompte" type="java.lang.Integer">
+            <column name="idCompte" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="client" class="ma.gabCashRetracted.entities.Client" fetch="select">
+            <column name="idClient" not-null="true" />
+        </many-to-one>
+        <property name="montant" type="java.lang.Float">
+            <column name="montant" precision="12" scale="0" />
+        </property>
+        <set name="transactions" table="transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Compte" not-null="true" />
+            </key>
+            <one-to-many class="ma.gabCashRetracted.entities.Transaction" />
+        </set>
+    </class>
+</hibernate-mapping>
