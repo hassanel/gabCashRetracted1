@@ -54,7 +54,7 @@ public class SprController {
 		ModelAndView modelview = new ModelAndView();
 		modelview.setViewName("adminListeComptes");
 		modelview.addObject("listeComptes",dao.getComptes(Integer.parseInt(idClient)));
-		
+		modelview.addObject("client",dao.getClientById(Integer.parseInt(idClient)));
 		return modelview;
 	}
 	
@@ -64,7 +64,7 @@ public class SprController {
 		ModelAndView modelview = new ModelAndView();
 		modelview.setViewName("adminListeTransactions");
 		modelview.addObject("listeTransactions",dao.getTransactions(Integer.parseInt(idCompte)));
-		
+		modelview.addObject("compte",dao.findCompte(Integer.parseInt(idCompte)));
 		return modelview;
 	}
 	
@@ -76,7 +76,7 @@ public class SprController {
 		ModelAndView modelview = new ModelAndView();
 		modelview.setViewName("client");
 		modelview.addObject("clientListeComptes",dao.getComptes(c.getIdClient()));
-		
+		modelview.addObject("client",c);
 		return modelview;
 	}
 	
@@ -86,7 +86,7 @@ public class SprController {
 		ModelAndView modelview = new ModelAndView();
 		modelview.setViewName("clientListeTransactions");
 		modelview.addObject("listeTransactions",dao.getTransactions(Integer.parseInt(idCompte)));
-		
+		modelview.addObject("compte",dao.findCompte(Integer.parseInt(idCompte)));
 		return modelview;
 	}
 }

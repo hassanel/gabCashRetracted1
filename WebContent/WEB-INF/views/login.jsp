@@ -3,9 +3,18 @@
 <html>
 <head>
 <title>login</title>
+<style type="text/css">
+
+.auth{
+	width : 50%;
+	margin-top : 10%;
+	border : 2px black solid;
+}
+</style>
 </head>
 <body>
-
+<center>
+<div class="auth">
 <h1>Page d'authentification </h1>
 
 <c:if test="${not empty msg_erreur}">
@@ -30,7 +39,8 @@ ${msg_logout}
 </tr>
 
 </table>
-
+</div>
+</center>
 </form>
 
 

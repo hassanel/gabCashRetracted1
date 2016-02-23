@@ -3,10 +3,15 @@
 <html>
 <head>
 <title>Client Page</title>
+<link type="text/css" rel="stylesheet" href="/CSS/TableCSSCode.css" />
+<style type="text/css">
+<%@ include file="/CSS/TableCSSCode.css"%>
+</style>
 </head>
 <body>
-<table border=1>
-<caption>Liste des transactions :</caption>
+<div class="CSSTableGenerator" >
+<table>
+<caption>Liste des transactions du compte num ${compte.idCompte}:</caption>
 <tr>
 <td>Id</td>
 <td>Montant</td>
@@ -26,13 +31,8 @@
     </tr>
 </c:forEach>
 </table>
+</div>
 <br/>
-<ul>
-<c:forEach items="${listeTransactions}" var="t">
-    <li> ${c.idtransaction} ${c.date} ${c.montant} 
-    </li>
-</c:forEach>
-</ul>
 <a href="j_spring_security_logout">Se déconnecter</a>
 </body>
 </html>

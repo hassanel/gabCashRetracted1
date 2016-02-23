@@ -3,9 +3,14 @@
 <html>
 <head>
 <title>Admin Page</title>
+<link type="text/css" rel="stylesheet" href="/CSS/TableCSSCode.css" />
+<style type="text/css">
+<%@ include file="/CSS/TableCSSCode.css"%>
+</style>
 </head>
 <body>
-<table border=1>
+<div class="CSSTableGenerator" >
+<table>
 <caption>Liste des clients :</caption>
 <tr>
 <td>Nom</td>
@@ -14,14 +19,15 @@
 <c:forEach items="${listeClients}" var="c">
     <tr>
     	<td>
-    		<a href="adminListeComptes?idClient=${c.idClient}"> ${c.nom} </a>
+    		<center><a href="adminListeComptes?idClient=${c.idClient}"> ${c.nom} </a></center>
     	</td>
     	<td>
-    		<a href="adminListeComptes?idClient=${c.idClient}"> ${c.prenom} </a>
+    		<center><a href="adminListeComptes?idClient=${c.idClient}"> ${c.prenom} </a></center>
     	</td>
     </tr>
 </c:forEach>
 </table>
+</div>
 <br/>
 <a href="j_spring_security_logout">Se déconnecter</a>
 </body>

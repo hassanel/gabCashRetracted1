@@ -121,7 +121,7 @@ public class Dao implements Idao {
 		Session session = sessionFactory.openSession();
 		
 		try {
-		Query query = session.createQuery("from Client where idClient" +  idClient);
+		Query query = session.createQuery("from Client where idClient=" +  idClient);
 		return (Client) query.uniqueResult();
 		} 
 		
